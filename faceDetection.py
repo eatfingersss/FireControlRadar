@@ -3,8 +3,8 @@ import cv2
 from ServoCtl import ServoCtl
 import ReadConfig
 
-WIDTH = 640
-HEIGHT = 480
+WIDTH = 800
+HEIGHT = 600
 
 files = ReadConfig.get_cascade_files()
 for it in files:
@@ -30,11 +30,16 @@ while True:
     for (x, y, w, h) in faces:
         if not flag:
             sc.ctl((x + w) / 2, (y + h) / 2)
-        flag |= True
+            
+            cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
+	# flag |= True
 
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        else:
+            cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        flag |= True
         roi_gray = gray[y:y + h, x:x + w]
         roi_color = img[y:y + h, x:x + w]
+
 
     cv2.imshow('video', img)
 

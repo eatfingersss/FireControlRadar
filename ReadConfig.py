@@ -1,4 +1,3 @@
-import configparser
 import os
 
 
@@ -19,7 +18,7 @@ import os
 
 def get_cascade_files():
     files = []
-    path_dir = os.listdir('./Cascade/')
+    path_dir = os.listdir('./Cascades/')
     for it in path_dir:
-        files.__add__(it)
+        files.append(it)
     return files
