@@ -46,16 +46,17 @@ class ServoCtl():
         print('dx > 0')
 
     def ctl(self, x, y):
+        v = 30
         print(str(self.s_center[0])+' - '+str(x)+' = '+str(self.s_center[0] - x)+'------'+str(self.s_center[1])+' - '+str(y)+' = '+str(self.s_center[1] - y))
         if self.s_center[0] - x > EXP:
-            self.left()
+            self.left(v)
         elif self.s_center[0] - x < (0-EXP):
-            self.right()
+            self.right(v)
 
         if self.s_center[1] - y > EXP:
-            self.up()
+            self.up(v)
         elif self.s_center[1] - y < (0-EXP):
-            self.down()
+            self.down(v)
             
 if __name__== '__main__':
     s = ServoCtl(1,2)
