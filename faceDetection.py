@@ -32,14 +32,20 @@ while True:
             sc.ctl((x + w) / 2, (y + h) / 2)
             
             cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)
-	# flag |= True
+            cv2.line(img, (x, y), (x+w, y+h), ( 0, 0,255), 2)
+            cv2.line(img, (x+w, y), (x, y+h), ( 0, 0,255), 2)
+	 #flag |= True
 
         else:
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            #cv2.line(img, (x, y), (x+w, y+h), ( 0, 0), 2)
+            #cv2.line(img, (x+w, y), (x, y+h), ( 0, 0), 2)
         flag |= True
         roi_gray = gray[y:y + h, x:x + w]
         roi_color = img[y:y + h, x:x + w]
 
+    cv2.line(img, (0, int(HEIGHT/2.0)), (WIDTH, int(HEIGHT/2.0)), (255, 0, 0), 2)
+    cv2.line(img, (int(WIDTH/2), 0), (int(WIDTH/2.0), HEIGHT), (255, 0, 0), 2)   
 
     cv2.imshow('video', img)
 

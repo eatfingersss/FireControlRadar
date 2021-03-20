@@ -57,6 +57,6 @@ class ServoCtl():
         elif self.s_center[1] - y < (0-EXP):
             self.down()
             
-#if main == 'main':
-#s = ServoCtl(1,2)
-#s.servo_angle(0,180)
+if __name__== '__main__':
+    s = ServoCtl(1,2)
+    s.servo_angle(0,180)
